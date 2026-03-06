@@ -1,0 +1,268 @@
+Build a full-stack AI civic platform called **FixMyCity – Smart City OS**.
+
+GOAL
+Create a system where citizens can upload photos of city problems (garbage dumps, potholes, water leakage, broken streetlights, damaged infrastructure).
+The platform uses **Google Gemini Vision AI** to analyze the image, identify the issue, determine severity, estimate impact, and guide citizens on how to report it.
+
+The platform should look like a **modern civic-tech dashboard** and feel like a real startup product.
+
+---
+
+TECH STACK
+
+Frontend
+React + Vite
+TailwindCSS
+Framer Motion animations
+Leaflet.js map system
+
+Backend
+Node.js + Express
+Google Gemini API (gemini-1.5-flash vision)
+
+Database
+Firebase Firestore (store reports)
+
+Deployment ready
+Vercel frontend
+Render backend
+
+---
+
+CORE FEATURES
+
+1️⃣ AI PROBLEM DETECTION
+
+User uploads an image.
+
+Backend sends image to Gemini Vision API.
+
+Prompt Gemini with:
+
+"You are a city infrastructure inspector. Analyze this image and identify any civic problem. Respond only in JSON format."
+
+Return:
+
+{
+problemType: string,
+severity: High | Medium | Low,
+description: string,
+communityImpact: string,
+authority: string,
+estimatedFixTime: string,
+actions: [4 steps citizens should take]
+}
+
+---
+
+2️⃣ SMART AUTHORITY DETECTION
+
+Automatically suggest which department handles the issue.
+
+Examples:
+
+Pothole → Road Works Department
+Garbage → Municipal Sanitation
+Water Leak → Water Board
+Streetlight → Electricity Department
+
+---
+
+3️⃣ LOCATION DETECTION
+
+Allow user to:
+
+Use GPS location
+OR drop pin on map
+
+Show issue marker on map.
+
+---
+
+4️⃣ COMMUNITY ISSUE MAP
+
+Display all reported problems on a city map.
+
+Markers color coded by severity:
+
+Red = High
+Yellow = Medium
+Green = Low
+
+---
+
+5️⃣ AI REPORT GENERATOR
+
+Generate a formatted complaint.
+
+Example output:
+
+Subject:
+Urgent Civic Issue – Road Damage
+
+Body:
+A pothole has been detected at [location].
+Severity: High
+Impact: Risk to vehicles and pedestrians.
+
+Recommended action: Immediate road repair.
+
+Allow:
+
+Copy text
+Download report
+Share report
+
+---
+
+6️⃣ ISSUE UPVOTING
+
+Allow citizens to upvote problems.
+
+This highlights urgent problems.
+
+---
+
+7️⃣ HEATMAP ANALYTICS
+
+Generate simulated heatmap of civic issues.
+
+Shows areas with frequent problems.
+
+---
+
+UI DESIGN
+
+Design should look like a **modern AI dashboard**.
+
+Theme
+Dark navy background
+Orange highlight
+Sky blue accent
+
+Sections
+
+NAVBAR
+Logo: FixMyCity
+Badge: Hackathon Build
+
+HERO
+Title:
+AI Smart City Problem Scanner
+
+Subtitle:
+Upload a photo and get instant civic analysis.
+
+UPLOAD ZONE
+Drag & drop image upload
+Image preview
+
+BUTTON
+Bright glowing orange button
+Text:
+Analyze with AI
+
+LOADING STATE
+Animated spinner
+Text:
+"AI analyzing city issue..."
+
+RESULTS PANEL
+
+Problem Type
+Severity Badge
+Description
+Community Impact
+Authority
+Estimated Fix Time
+
+ACTION STEPS
+Numbered list
+
+MAP PANEL
+Leaflet map
+User can pin location
+
+COMMUNITY PANEL
+
+Upvote button
+Report count
+Severity indicator
+
+---
+
+MOBILE OPTIMIZATION
+
+Fully responsive layout.
+
+Stack sections vertically on mobile.
+
+Minimum font size 14px.
+
+Buttons full width.
+
+---
+
+ERROR HANDLING
+
+If no image uploaded:
+"Please upload an image first."
+
+If API fails:
+"AI analysis failed. Please try again."
+
+---
+
+PERFORMANCE
+
+Compress images before sending to API.
+
+Prevent duplicate API calls.
+
+---
+
+SECURITY
+
+Store Gemini API key in backend environment variables.
+
+Never expose the API key in frontend code.
+
+---
+
+PROJECT STRUCTURE
+
+/frontend
+/components
+UploadZone.jsx
+ResultCard.jsx
+MapView.jsx
+IssueCard.jsx
+/pages
+Home.jsx
+App.jsx
+
+/backend
+server.js
+geminiService.js
+routes.js
+
+---
+
+OUTPUT
+
+Provide:
+
+Complete frontend code
+Complete backend code
+Gemini API integration
+Example JSON parsing
+UI components
+Map integration
+Firebase integration
+
+Ensure project runs using:
+
+npm install
+npm run dev
+
+The UI must look **modern, impressive, and hackathon-ready**.
